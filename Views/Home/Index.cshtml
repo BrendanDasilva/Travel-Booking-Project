@@ -1,0 +1,73 @@
+﻿@{
+  ViewData["Title"] = "Home";
+}
+
+<div class="jumbotron py-3">
+  <h1 class="display-4">Welcome to ExploreTheWorld!</h1>
+  <p class="lead">Your one-stop destination for all your travel needs.</p>
+  <p>Book flights, hotels, and car rentals all in one place.</p>
+  <hr class="my-4">
+</div>
+
+<section class="search-panel text-center py-3 border border-dark rounded">
+  <h2>Book Your Trip</h2>
+  <p>Search for and book your ideal getaway now!</p>
+  <form asp-controller="Home" asp-action="Search" method="get">
+    <input type="text" name="destination" placeholder="Destination" />
+    <input type="date" name="departureDate" placeholder="Departure Date" />
+    <input type="date" name="returnDate" placeholder="Return Date" />
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+</section>
+
+
+<section class="featured-destinations text-center py-4">
+  <h2>Featured Destinations</h2>
+  <div class="row">
+    <!-- Card for Paris -->
+    <div class="col-md-4">
+      <div class="card">
+        <img src="~/images/Paris.png" class="card-img-top" alt="Paris">
+        <div class="card-body">
+          <h5 class="card-title">Paris</h5>
+          <p class="card-text">France</p>
+          <a href="#" class="btn btn-primary">Explore</a>
+        </div>
+      </div>
+    </div>
+    <!-- Card for New York -->
+    <div class="col-md-4">
+      <div class="card">
+        <img src="~/images/ny.png" class="card-img-top" alt="New York">
+        <div class="card-body">
+          <h5 class="card-title">New York</h5>
+          <p class="card-text">USA</p>
+          <a href="#" class="btn btn-primary">Explore</a>
+        </div>
+      </div>
+    </div>
+    <!-- Card for Tokyo -->
+    <div class="col-md-4">
+      <div class="card">
+        <img src="~/images/tokyo.jpg" class="card-img-top" alt="Tokyo">
+        <div class="card-body">
+          <h5 class="card-title">Tokyo</h5>
+          <p class="card-text">Japan</p>
+          <a href="#" class="btn btn-primary">Explore</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="testimonials text-center py-3">
+  <h2>Customer Testimonials</h2>
+  <p>"I had a fantastic experience using ExploreTheWorld to book my family vacation!" - Jane Doe</p>
+  <!-- Additional testimonials if we want -->
+</section>
+
+<section class="about-services text-center py-3">
+  <h2>About Our Services</h2>
+  <p>We offer comprehensive travel booking services, including flights, hotels, and car rentals, ensuring your travel planning is seamless and stress-free.</p>
+</section>

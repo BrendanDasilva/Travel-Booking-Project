@@ -1,0 +1,51 @@
+﻿@model Assignment1.Models.FlightBookingViewModel
+
+<h2 class="pageTitle">Book Flight</h2>
+
+<form asp-controller="FlightBooking" asp-action="CreateBooking" method="post">
+  <div style="max-width: 50%; margin: auto;">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td><label>Airline: </label></td>
+          <td><input type="text" value="@Model.Airline" readonly class="form-control-plaintext" /></td>
+        </tr>
+        <tr>
+          <td><label>Departure Airport: </label></td>
+          <td><input type="text" value="@Model.DepartureAirport" readonly class="form-control-plaintext" /></td>
+        </tr>
+        <tr>
+          <td><label>Arrival Airport: </label></td>
+          <td><input type="text" value="@Model.ArrivalAirport" readonly class="form-control-plaintext" /></td>
+        </tr>
+        <tr>
+          <td><label>Departure Time: </label></td>
+          <td><input type="text" value="@Model.DepartureTime" readonly class="form-control-plaintext" /></td>
+        </tr>
+        <tr>
+          <td><label>Arrival Time: </label></td>
+          <td><input type="text" value="@Model.ArrivalTime" readonly class="form-control-plaintext" /></td>
+        </tr>
+        <tr>
+          <td><label>Price: </label></td>
+          <td><input type="text" value="@Model.Price.ToString("C")" readonly class="form-control-plaintext" /></td>
+        </tr>
+        <!-- Customer inputs -->
+        <tr>
+          <td><label asp-for="CustomerName"></label></td>
+          <td><input asp-for="CustomerName" class="form-control" /></td>
+        </tr>
+        <tr>
+          <td><label asp-for="CustomerEmail"></label></td>
+          <td><input asp-for="CustomerEmail" class="form-control" /></td>
+        </tr>
+        <tr>
+          <td><label>Booking Date:</label></td>
+          <td><input type="text" value="@Model.BookingDate" readonly class="form-control-plaintext" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Confirm Booking</button>
+</form>

@@ -1,0 +1,44 @@
+﻿@model Assignment1.Models.Hotel
+
+@{
+  ViewData["Title"] = "Create Hotel";
+}
+
+<div class="form-container">
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="CreateHotel" method="post">
+  <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+  <div class="form-group">
+    <label asp-for="Name"></label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+  </div>
+
+  <div class="form-group">
+    <label asp-for="Location"></label>
+    <input asp-for="Location" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <label asp-for="PricePerNight"></label>
+    <input asp-for="PricePerNight" class="form-control" />
+    <span asp-validation-for="PricePerNight" class="text-danger"></span>
+  </div>
+
+  <div class="form-group">
+    <label asp-for="Amenities"></label>
+    <input asp-for="Amenities" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <label asp-for="ServiceType"></label>
+    <input asp-for="ServiceType" class="form-control" />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+<a href="@Url.Action("ListHotels", "Admin")" class="btn btn-secondary">Back to List</a>
+</div>

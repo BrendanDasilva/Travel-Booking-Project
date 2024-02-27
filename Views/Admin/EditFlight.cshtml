@@ -1,0 +1,62 @@
+﻿@model Assignment1.Models.Flight
+
+@{
+  ViewData["Title"] = "Edit Flight";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="EditFlight" method="post">
+  <input type="hidden" asp-for="FlightId" />
+  <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+  <div class="form-group">
+    <label asp-for="Airline" class="control-label"></label>
+    <input asp-for="Airline" class="form-control" />
+    <span asp-validation-for="Airline" class="text-danger"></span>
+  </div>
+
+  <div class="form-group">
+    <label asp-for="Destination" class="control-label"></label>
+    <input asp-for="Destination" class="form-control" />
+    <span asp-validation-for="Destination" class="text-danger"></span>
+  </div>
+
+  <div class="form-group">
+    <label asp-for="DepartureAirport" class="control-label"></label>
+    <input asp-for="DepartureAirport" class="form-control" />
+    <span asp-validation-for="DepartureAirport" class="text-danger"></span>
+  </div>
+
+  <div class="form-group">
+    <label asp-for="ArrivalAirport" class="control-label"></label>
+    <input asp-for="ArrivalAirport" class="form-control" />
+    <span asp-validation-for="ArrivalAirport" class="text-danger"></span>
+  </div>
+
+  <div class="form-group">
+    <label asp-for="DepartureTime" class="control-label"></label>
+    <input asp-for="DepartureTime" class="form-control" type="datetime-local" />
+    <span asp-validation-for="DepartureTime" class="text-danger"></span>
+  </div>
+
+  <div class="form-group">
+    <label asp-for="ArrivalTime" class="control-label"></label>
+    <input asp-for="ArrivalTime" class="form-control" type="datetime-local" />
+    <span asp-validation-for="ArrivalTime" class="text-danger"></span>
+  </div>
+
+  <div class="form-group">
+    <label asp-for="Price" class="control-label"></label>
+    <input asp-for="Price" class="form-control" type="number" step="0.01" />
+    <span asp-validation-for="Price" class="text-danger"></span>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+@section Scripts {
+  @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+  }
+}

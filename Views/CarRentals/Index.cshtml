@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Assignment1.Models.Cars>
+
+@{
+    ViewData["Title"] = "Car Listings";
+}
+
+<h2 class="pageTitle">Car Listings</h2>
+
+<div>
+    <a asp-action="CurrentRentals" asp-controller="CarRentals" class="btn btn-primary">View Current Rentals</a>
+</div>
+
+
+<div class="container">
+    <!-- Sorting dropdown -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <form asp-action="Index" method="get" class="form-inline">
+                <label for="sortOrder" class="mr-2">Sort By:</label>
+                <select id="sortOrder" name="sortOrder" class="form-control sort-dropdown" onchange="this.form.submit()">
+                    <option value="">Select...</option>
+                    <option value="Brand">Brand (Ascending)</option>
+                    <option value="brand_desc">Brand (Descending)</option>
+                    <option value="Model">Model (Ascending)</option>
+                    <option value="model_desc">Model (Descending)</option>
+                    <option value="Year">Year (Ascending)</option>
+                    <option value="year_desc">Year (Descending)</option>
+                    <option value="Price">Price Per Day (Ascending)</option>
+                    <option value="price_desc">Price Per Day (Descending)</option>
+                    <option value="Available">Availability</option>
+                    <option value="available_desc">Availability (Descending)</option>
+                </select>
+
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var car in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@car.Brand @car.Model</h5>
+                        <p class="card-text">
+                            <strong>Year:</strong> @car.Year <br>
+                            <strong>Price Per Day:</strong> @String.Format("{0:C}", car.PricePerDay) <br>
+                            <strong>Availability:</strong> @(car.IsAvailable ? "Available" : "Unavailable")
+                        </p>
+                        <!-- Rent Button -->
+                        <form asp-controller="CarRentals" asp-action="Book" method="get">
+                            <input type="hidden" name="carId" value="@car.CarId" />
+                            <button type="submit" class="btn btn-primary">Rent</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('sortOrder').value = '@ViewData["CurrentSort"]';
+    </script>
+}

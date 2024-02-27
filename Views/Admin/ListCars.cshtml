@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Assignment1.Models.Cars>
+
+<h2 class="pageTitle">Cars</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Brand</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Price Per Day</th>
+      <th>Availability</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var car in Model)
+    {
+      <tr>
+        <td>@Html.DisplayFor(modelItem => car.Brand)</td>
+        <td>@Html.DisplayFor(modelItem => car.Model)</td>
+        <td>@Html.DisplayFor(modelItem => car.Year)</td>
+        <td>@Html.DisplayFor(modelItem => car.PricePerDay)</td>
+        <td>@(car.IsAvailable ? "Yes" : "No")</td>
+        <td>
+          <a href="@Url.Action("EditCar", "Admin", new { id = car.CarId })" class="btn btn-primary">Edit</a>
+          <a href="@Url.Action("DeleteCar", "Admin", new { id = car.CarId })" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    }
+
+  </tbody>
+</table>

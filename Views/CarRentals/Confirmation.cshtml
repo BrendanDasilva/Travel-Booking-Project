@@ -1,0 +1,18 @@
+﻿@model Assignment1.Models.CarRental
+
+<h2>Booking Confirmation</h2>
+
+<div class="container">
+    <p><strong>Car Brand:</strong> @Model.Car.Brand</p>
+    <p><strong>Car Model:</strong> @Model.Car.Model</p>
+    <p><strong>Car Year:</strong> @Model.Car.Year</p>
+    <p><strong>Car Price Per Day:</strong> @String.Format("{0:C}", Model.Car.PricePerDay)</p>
+    <p><strong>Pickup Date:</strong> @Model.PickupDate.ToString("g")</p>
+    <p><strong>Return Date:</strong> @Model.ReturnDate.ToString("g")</p>
+    <p><strong>Customer Name:</strong> @Model.CustomerName</p>
+    <p><strong>Customer Email:</strong> @Model.CustomerEmail</p>
+</div>
+
+<div>
+    <a asp-action="CurrentRentals" asp-controller="CarRentals" class="btn btn-primary">View Current Rentals</a>
+</div>

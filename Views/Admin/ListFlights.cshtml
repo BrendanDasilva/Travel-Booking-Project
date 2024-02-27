@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Assignment1.Models.Flight>
+
+<h2 class="pageTitle">Flights</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Airline</th>
+      <th>Destination</th>
+      <th>Departure Airport</th>
+      <th>Arrival Airport</th>
+      <th>Departure Time</th>
+      <th>Arrival Time</th>
+      <th>Price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var flight in Model)
+    {
+      <tr>
+        <td>@Html.DisplayFor(modelItem => flight.Airline)</td>
+        <td>@Html.DisplayFor(modelItem => flight.Destination)</td>
+        <td>@Html.DisplayFor(modelItem => flight.DepartureAirport)</td>
+        <td>@Html.DisplayFor(modelItem => flight.ArrivalAirport)</td>
+        <td>@Html.DisplayFor(modelItem => flight.DepartureTime, "{0:yyyy-MM-dd HH:mm}")</td>
+        <td>@Html.DisplayFor(modelItem => flight.ArrivalTime, "{0:yyyy-MM-dd HH:mm}")</td>
+        <td>@Html.DisplayFor(modelItem => flight.Price, "{0:C}")</td>
+        <td>
+          <a href="@Url.Action("EditFlight", "Admin", new { id = flight.FlightId })" class="btn btn-primary">Edit</a>
+          <a href="@Url.Action("DeleteFlight", "Admin", new { id = flight.FlightId })" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

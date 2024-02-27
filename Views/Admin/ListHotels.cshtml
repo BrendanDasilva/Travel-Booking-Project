@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Assignment1.Models.Hotel>
+
+@{
+  ViewData["Title"] = "List Hotels";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Price Per Night</th>
+      <th>Amenities</th>
+      <th>Service Type</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var hotel in Model)
+    {
+      <tr>
+        <td>@hotel.HotelId</td>
+        <td>@hotel.Name</td>
+        <td>@hotel.Location</td>
+        <td>@hotel.PricePerNight</td>
+        <td>@hotel.Amenities</td>
+        <td>@hotel.ServiceType</td>
+        <td>
+          <a href="@Url.Action("EditHotel", "Admin", new { id = hotel.HotelId })" class="btn btn-primary">Edit</a>
+          <a href="@Url.Action("DeleteHotel", "Admin", new { id = hotel.HotelId })" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+<a href="@Url.Action("CreateHotel", "Admin")" class="btn btn-success">Add New Hotel</a>

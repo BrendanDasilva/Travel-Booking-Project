@@ -1,0 +1,128 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+table th, table td {
+  padding: 10px;
+}
+
+.btn {
+  margin: 5px;
+}
+
+table {
+  line-height: 2.5;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd; /* Slight border around each cell */
+}
+
+tr:hover {
+  background-color: #f5f5f5; /* Optional: slight hover effect on rows */
+}
+
+.card {
+  margin-bottom: 20px;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  border-radius: 0;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-text {
+  color: #555;
+}
+
+.btn-primary {
+  background-color: #0056b3;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: green;
+}
+
+.btn-secondary:hover {
+  background-color: orange;
+}
+
+.btn-explore, .btn-explore i {
+  color: #ffffff !important; /* Force white color and override other styles */
+  border-radius: 0.50rem;
+}
+
+.btn-explore:hover, .btn-explore:hover i {
+  color: #ffffff !important;
+  border-color: #ffffff !important; /* White border on hover */
+  background-color: #234e9e;
+}
+
+.pageTitle {
+  margin: 25px;
+}
+
+.sort-dropdown {
+  width: auto;
+  min-width: 200px;
+}
+
+.card {
+  margin-bottom: 20px;
+  border: none;
+  background-color: lightblue;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform .2s, box-shadow .2s;
+}
+
+  .card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+
+.form-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 15px;
+}
+
+.form-control {
+  max-width: 100%;
+  height: auto;
+}
+
+.pageTitle, form {
+  text-align: center;
+}
+
+label {
+  text-align: left;
+  display: block;
+}

@@ -1,0 +1,40 @@
+﻿@{
+  ViewData["Title"] = "Admin Dashboard";
+}
+
+<h2 class="pageTitle">@ViewData["Title"]</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Flights</h3>
+          <p class="card-text">Manage your flights.</p>
+          <a href="@Url.Action("CreateFlight", "Admin")" class="btn btn-primary">Create</a>
+          <a href="@Url.Action("ListFlights", "Admin")" class="btn btn-secondary">Manage Flights</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Cars</h3>
+          <p class="card-text">Manage your car inventory.</p>
+          <a href="@Url.Action("CreateCar", "Admin")" class="btn btn-primary">Create</a>
+          <a href="@Url.Action("ListCars", "Admin")" class="btn btn-secondary">Manage Cars</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Hotels</h3>
+          <p class="card-text">Manage your hotel listings.</p>
+          <a href="@Url.Action("CreateHotel", "Admin")" class="btn btn-primary">Create</a>
+          <a href="@Url.Action("ListHotels", "Admin")" class="btn btn-secondary">Manage Hotels</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+﻿@model Assignment1.Models.Cars
+
+@{
+  ViewData["Title"] = "Edit Car";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="EditCar" method="post">
+  <input type="hidden" asp-for="CarId" />
+  <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+  <div class="form-group">
+    <label asp-for="Brand" class="control-label"></label>
+    <input asp-for="Brand" class="form-control" />
+    <span asp-validation-for="Brand" class="text-danger"></span>
+  </div>
+
+  <div class="form-group">
+    <label asp-for="Model" class="control-label"></label>
+    <input asp-for="Model" class="form-control" />
+    <span asp-validation-for="Model" class="text-danger"></span>
+  </div>
+
+  <div class="form-group">
+    <label asp-for="Year" class="control-label"></label>
+    <input asp-for="Year" class="form-control" />
+    <span asp-validation-for="Year" class="text-danger"></span>
+  </div>
+
+  <div class="form-group">
+    <label asp-for="PricePerDay" class="control-label"></label>
+    <input asp-for="PricePerDay" class="form-control" type="number" step="0.01" />
+    <span asp-validation-for="PricePerDay" class="text-danger"></span>
+  </div>
+
+  <div class="form-group">
+    <label asp-for="IsAvailable" class="control-label"></label>
+    <select asp-for="IsAvailable" class="form-control">
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
+    <span asp-validation-for="IsAvailable" class="text-danger"></span>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+@section Scripts {
+  @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+  }
+}

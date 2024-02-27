@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Assignment1</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Assignment1.styles.css" asp-append-version="true" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/icons/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <div>
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">ExploreTheWorld</a>
+            <a class="btn btn-explore me-2" asp-controller="Flights" asp-action="Index">
+              <i class="fas fa-plane"></i> Flights
+            </a>
+            <a class="btn btn-explore me-2" asp-controller="Hotels" asp-action="Index">
+              <i class="fas fa-bed"></i> Hotels
+            </a>
+            <a class="btn btn-explore" asp-controller="CarRentals" asp-action="Index">
+              <i class="fas fa-car"></i> Car Rentals
+            </a>
+          </div>
+          <div>
+            <!-- Admin Link -->
+            <a class="btn btn-admin" asp-controller="Admin" asp-action="AdminIndex">
+              <i class="fas fa-user-cog"></i> Admin
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+      &copy; 2024 - Assignment1 --- Brendan Dasilva - 101447806 --- Kailie Field - 100627702 --- Jessica Lee - 101445909
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

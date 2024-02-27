@@ -1,0 +1,19 @@
+﻿@model Assignment1.Models.FlightBooking
+
+@{
+  ViewData["Title"] = "Booking Confirmation";
+}
+
+<h2>Booking Confirmation</h2>
+
+<div class="container">
+  <p><strong>Airline:</strong> @Model.Airline</p>
+  <p><strong>From:</strong> @Model.DepartureAirport</p>
+  <p><strong>To:</strong> @Model.ArrivalAirport</p>
+  <p><strong>Departure Time:</strong> @Model.DepartureTime.ToString("g")</p>
+  <p><strong>Arrival Time:</strong> @Model.ArrivalTime.ToString("g")</p>
+  <p><strong>Price:</strong> @String.Format("{0:C}", Model.Price)</p>
+  <p><strong>Customer Name:</strong> @Model.CustomerName</p>
+  <p><strong>Customer Email:</strong> @Model.CustomerEmail</p>
+  <p><strong>Booking Date:</strong> @Model.BookingDate.ToString("g")</p>
+</div>

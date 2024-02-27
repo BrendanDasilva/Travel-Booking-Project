@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Assignment1.Models.Flight>
+
+@{
+  ViewData["Title"] = "Flight Listings";
+}
+
+<h2 class="pageTitle">Flight Listings</h2>
+
+<div class="container">
+  <!-- Sorting dropdown -->
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <form asp-action="Index" method="get" class="form-inline">
+        <label for="sortOrder" class="mr-2">Sort By:</label>
+        <select id="sortOrder" name="sortOrder" class="form-control sort-dropdown" onchange="this.form.submit()">
+          <option value="">Select...</option>
+          <option value="">Airline (Ascending)</option>
+          <option value="airline_desc">Airline (Descending)</option>
+          <option value="Destination">Destination (Ascending)</option>
+          <option value="destination_desc">Destination (Descending)</option>
+          <option value="DepartureTime">Departure Time (Ascending)</option>
+          <option value="departureTime_desc">Departure Time (Descending)</option>
+          <option value="Price">Price (Ascending)</option>
+          <option value="price_desc">Price (Descending)</option>
+        </select>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    @foreach (var flight in Model)
+    {
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">@flight.Airline</h5>
+            <p class="card-text">
+              <strong>Destination:</strong> @flight.Destination <br>
+              <strong>From:</strong> @flight.DepartureAirport <br>
+              <strong>To:</strong> @flight.ArrivalAirport <br>
+              <strong>Departure:</strong> @flight.DepartureTime.ToString("g") <br>
+              <strong>Arrival:</strong> @flight.ArrivalTime.ToString("g") <br>
+              <strong>Price:</strong> @String.Format("{0:C}", flight.Price)
+            </p>
+            <!-- Book Button -->
+            <form asp-controller="FlightBooking" asp-action="Book" method="get">
+              <input type="hidden" name="flightId" value="@flight.FlightId" />
+              <button type="submit" class="btn btn-primary">Book</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+@section Scripts {
+  <script>
+    document.getElementById('sortOrder').value = '@ViewData["CurrentSort"]';
+  </script>
+}

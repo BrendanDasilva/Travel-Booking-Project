@@ -1,0 +1,55 @@
+﻿@model Assignment1.Models.Cars
+
+<h2 class="pageTitle">Book Rental Car</h2>
+
+<form asp-controller="CarRentals" asp-action="CreateBooking" method="post">
+    <input type="hidden" name="carId" value="@Model.CarId" />
+
+    <div style="max-width: 50%; margin: auto;">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td><label>Car ID:</label></td>
+                    <td>@Model.CarId</td>
+                </tr>
+                <tr>
+                    <td><label>Car Brand:</label></td>
+                    <td><input type="text" value="@Model.Brand" readonly class="form-control-plaintext" /></td>
+                </tr>
+                <tr>
+                    <td><label>Car Model:</label></td>
+                    <td><input type="text" value="@Model.Model" readonly class="form-control-plaintext" /></td>
+                </tr>
+                <tr>
+                    <td><label>Price Per Day:</label></td>
+                    <td><input type="text" value="@Model.PricePerDay.ToString("C")" readonly class="form-control-plaintext" /></td>
+                </tr>
+                <!-- Customer inputs -->
+                <tr>
+                    <td><label for="customerName">Customer Name:</label></td>
+                    <td><input type="text" id="customerName" name="customerName" class="form-control" /></td>
+                </tr>
+                <tr>
+                    <td><label for="customerEmail">Customer Email:</label></td>
+                    <td><input type="email" id="customerEmail" name="customerEmail" class="form-control" /></td>
+                </tr>
+                <tr>
+                    <td><label for="pickupDate">Pickup Date:</label></td>
+                    <td><input type="date" id="pickupDate" name="pickupDate" class="form-control" /></td>
+                </tr>
+                <tr>
+                    <td><label for="returnDate">Return Date:</label></td>
+                    <td><input type="date" id="returnDate" name="returnDate" class="form-control" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Confirm Booking" class="btn btn-primary" />
+    </div>
+
+    <div>
+        <a asp-controller="CarRentals" asp-action="Index">Back to Rental Options</a>
+    </div>
+</form>

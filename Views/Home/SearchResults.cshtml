@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Assignment1.Models.Flight>
+
+@{
+  ViewData["Title"] = "Search Results";
+}
+
+<h2>Search Results</h2>
+
+<div class="container">
+  <div class="row">
+    @foreach (var flight in Model)
+    {
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">@flight.Airline</h5>
+            <p class="card-text">
+              <strong>Destination:</strong> @flight.Destination <br>
+              <strong>From:</strong> @flight.DepartureAirport <br>
+              <strong>To:</strong> @flight.ArrivalAirport <br>
+              <strong>Departure:</strong> @flight.DepartureTime.ToString("g") <br>
+              <strong>Arrival:</strong> @flight.ArrivalTime.ToString("g") <br>
+              <strong>Price:</strong> @String.Format("{0:C}", flight.Price)
+            </p>
+            <!-- Book Button -->
+            <form asp-controller="FlightBooking" asp-action="Book" method="get">
+              <input type="hidden" name="flightId" value="@flight.FlightId" />
+              <button type="submit" class="btn btn-primary">Book</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

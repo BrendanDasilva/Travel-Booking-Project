@@ -1,0 +1,55 @@
+﻿@model Assignment1.Models.Hotel
+
+@{
+  ViewData["Title"] = "Edit Hotel";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="EditHotel" method="post">
+  <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+  <!-- Hidden field for HotelId -->
+  <input type="hidden" asp-for="HotelId" />
+
+  <!-- Name -->
+  <div class="form-group">
+    <label asp-for="Name" class="control-label"></label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+  </div>
+
+  <!-- Location -->
+  <div class="form-group">
+    <label asp-for="Location" class="control-label"></label>
+    <input asp-for="Location" class="form-control" />
+  </div>
+
+  <!-- PricePerNight -->
+  <div class="form-group">
+    <label asp-for="PricePerNight" class="control-label"></label>
+    <input asp-for="PricePerNight" class="form-control" type="number" step="0.01" />
+    <span asp-validation-for="PricePerNight" class="text-danger"></span>
+  </div>
+
+  <!-- Amenities -->
+  <div class="form-group">
+    <label asp-for="Amenities" class="control-label"></label>
+    <input asp-for="Amenities" class="form-control" />
+  </div>
+
+  <!-- ServiceType -->
+  <div class="form-group">
+    <label asp-for="ServiceType" class="control-label"></label>
+    <input asp-for="ServiceType" class="form-control" />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Save Changes</button>
+  <a asp-action="ListHotels" class="btn btn-secondary">Back to List</a>
+</form>
+
+@section Scripts {
+  @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+  }
+}

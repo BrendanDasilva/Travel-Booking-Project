@@ -1,0 +1,47 @@
+﻿@model List<Assignment1.Models.Hotel>
+@{
+  ViewData["Title"] = "Hotels";
+  var nameSortParm = ViewData["NameSortParm"]?.ToString();
+  var priceSortParm = ViewData["PriceSortParm"]?.ToString();
+}
+
+<h2 class="pageTitle">@ViewData["Title"]</h2>
+
+<form asp-action="Index" method="get" class="form-inline mb-4" style="padding-left: 12px;">
+  <label for="sortOrder" class="mr-2">Sort By:</label>
+  <select id="sortOrder" name="sortOrder" class="form-control sort-dropdown" onchange="this.form.submit()">
+    <option value="">Select...</option>
+    <option value="" selected="@(nameSortParm == "" ? "selected" : null)">Name (Ascending)</option>
+    <option value="name_desc" selected="@(nameSortParm == "name_desc" ? "selected" : null)">Name (Descending)</option>
+    <option value="Price" selected="@(priceSortParm == "Price" ? "selected" : null)">Price (Ascending)</option>
+    <option value="price_desc" selected="@(priceSortParm == "price_desc" ? "selected" : null)">Price (Descending)</option>
+  </select>
+</form>
+
+<div class="container">
+  <div class="row">
+    @foreach (var hotel in Model)
+    {
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">@hotel.Name</h5>
+            <p class="card-text">
+              <strong>ID:</strong> @hotel.HotelId <br>
+              <strong>Location:</strong> @hotel.Location <br>
+              <strong>Amenities:</strong> @hotel.Amenities <br>
+              <strong>Price Per Night:</strong> @String.Format("{0:C}", hotel.PricePerNight)
+            </p>
+            <a asp-action="HotelBooking" asp-route-hotelId="@hotel.HotelId" class="btn btn-primary">Reserve</a>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+@section Scripts {
+  <script>
+    document.getElementById('sortOrder').value = '@ViewData["CurrentSort"]';
+  </script>
+}
